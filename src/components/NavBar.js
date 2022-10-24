@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Cart from './CartWidget';
 
+
 function Navegacion() {
     return (
         <Navbar bg="warning" expand="lg">
