@@ -5,68 +5,67 @@ import manga from './MangaObj'
 
 
 
-
-
 const Home = () => {
-    const [filter, setFilter] = useState("");
     const [mangas, setMangas] = useState([]);
-  
+    const [filter, setFilter] = useState("");
+    const { cat } = useParams();
 
     const getImages = () => {
-        let items = require("./MangaObj")
-        return new Promise((resolve,reject)=>{
-            setTimeout(()=>{
-                resolve(items)
-            })
-        },3000)
+        setTimeout(() => {
+            const mangas = manga;
+            setMangas(mangas);
+        }, 9999999);
     };
 
     useEffect(() => {
-        async function fetched(){
-            const items = await getImages();
-            setMangas(items)
-        }
-        fetched();
+        getImages();
     }, []);
 
     return (
-        <div className='containerCard'>
-            <h2>Mangas</h2>
+        <div className='principal'>
+            <h2>principal</h2>
             <input
                 id="filter"
-                name="filter"
+                name="name"
                 type="text"
-                value="filter"
+                value={filter}
                 onChange={(event) => setFilter(event.target.value)}
             />
-            <div className='card'>
-                {
-                    mangas ? mangas.filter((saga) => saga.mangas.includes(filter))
-                        .map((mangas, i) => (
+
+            <div className='secundario'>
+                {cat ?
+                    mangas.filter((manga) => manga.mangas.includes(filter))
+                        .filter((manga) => manga.saga === cat)
+                        .map((manga, i) => (
                             <Card
+                                id={i}
                                 key={i}
-                                saga={mangas.saga}
-                                imagen={mangas.imagen}
-                                tomo={mangas.tomo}
-                                precio={mangas.precio}
+                                saga={manga.saga}
+                                tomo={manga.tomo}
+                                precio={manga.precio}
+                                imagen={manga.imagen}
                             />
                         ))
-                        : mangas.filter((saga) => saga.mangas.includes(filter))
-                            .map((mangas, i) => (
-                                <Card
-                                    key={i}
-                                    saga={mangas.saga}
-                                    imagen={mangas.imagen}
-                                    tomo={mangas.tomo}
-                                    precio={mangas.precio}
-                                />
-                ))}
+                    : mangas.filter((manga) => manga.mangas.includes(filter))
+                        .map((manga, i) => (
+
+                            <Card
+                                id={i}
+                                key={i}
+                                saga={manga.saga}
+                                tomo={manga.tomo}
+                                precio={manga.precio}
+                                imagen={manga.imagen}
+                            />
+                        ))
+                }
             </div>
 
         </div>
     )
-
 }
+
+
 
 
 export default Home;

@@ -22,7 +22,7 @@ import '../components/styles/Manga.css'
 import Button from './ButtonBuy'
 
 
-
+//Creando el objeto manga para llamar en Card
 const manga = [
     {
         saga: "Saiajin",
@@ -148,6 +148,4 @@ const manga = [
 
 
 
-
-
-export default manga;
+export default manga
