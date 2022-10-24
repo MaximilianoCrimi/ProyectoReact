@@ -19,11 +19,11 @@ import boo4 from '../components/imgManga/boo4.webp'
 import boo5 from '../components/imgManga/boo5.webp'
 import boo6 from '../components/imgManga/boo6.webp'
 import '../components/styles/Manga.css'
-import Button from './ButtonBuy'
+
 
 
 //Creando el objeto manga para llamar en Card
-const manga = [
+const Manga = [
     {
         saga: "Saiajin",
         tomo: 1,
@@ -147,5 +147,7 @@ const manga = [
 ];
 
 
+export default Manga;
 
-export default manga
+
+
