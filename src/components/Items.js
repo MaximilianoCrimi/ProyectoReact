@@ -1,5 +1,5 @@
 import Button from "./ButtonBuy";
-import manga from "./MangaObj";
+import "./styles/Manga.css"
 const Item = (props) => {
     return(
         <div className='containerCard'>

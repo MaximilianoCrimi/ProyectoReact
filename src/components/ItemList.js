@@ -1,17 +1,17 @@
 import {useState, useEffect} from 'react';
 import Item from './Items';
-import Manga from './MangaObj';
+
 
 
 const ItemList=()=>{
-    const[mangas, setMangas] = useState([])
+    const[mangas, setMangas] = useState("")
     const [loading, isLoading] = useState(false);
 
     const listado = ()=>{
-        let items = require(Manga);
+        let items = require(("./MangaObj.json"))
         return new Promise((resolve, reject)=>{
             setTimeout(()=>{
-                resolve(items)
+                resolve((items))
                 isLoading(true)
             }, 3000);
         })
