@@ -1,5 +1,8 @@
 import React from 'react'
 import ItemList from './ItemList';
+import "./styles/Manga.css"
+
+
  function ItemListContainer(greeting) {
   return (
     <div>

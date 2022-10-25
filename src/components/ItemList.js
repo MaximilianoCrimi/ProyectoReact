@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react';
 import Item from './Items';
+import "./styles/Manga.css"
+
 
 
 
