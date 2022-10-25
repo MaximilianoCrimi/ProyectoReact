@@ -1,16 +1,17 @@
 import {useState, useEffect} from 'react';
 import Item from './Items';
-import "./styles/Manga.css"
-
+import "./styles/Manga.css";
+import { Fragment } from 'react';
+import Loading from './loading';
 
 
 
 const ItemList=()=>{
-    const[mangas, setMangas] = useState("")
+    const[mangas, setMangas] = useState(<Loading/>)
     const [loading, isLoading] = useState(false);
 
     const listado = ()=>{
-        let items = require(("./MangaObj.json"))
+        let items = require("./MangaObj.json")
         return new Promise((resolve, reject)=>{
             setTimeout(()=>{
                 resolve((items))
@@ -29,7 +30,7 @@ useEffect(()=>{
 },[]);
 
     return(
-        <div>
+        <Fragment>
             {!loading? mangas: mangas.map((el)=>(
                 <Item
                     key={el.id}
@@ -39,7 +40,7 @@ useEffect(()=>{
                     imagen = {el.imagen}
                 />
             ))}
-        </div>
+        </Fragment>
     )
 }
 
