@@ -1,7 +1,7 @@
 import React from 'react'
 import ItemList from './ItemList';
 import "./styles/Manga.css"
-
+import ItemDetailContainer from './ItemDetailContainer';
 
  function ItemListContainer(greeting) {
   return (
@@ -9,7 +9,7 @@ import "./styles/Manga.css"
       <span>
         <br/><br/><br/><br/><br/><br/>
         <h1 style={{ color:"violet", paddingLeft:"30%", fontFamily:"arial"}}>{greeting.msg}</h1>
-   
+    
         <ItemList/>
       </span>
       

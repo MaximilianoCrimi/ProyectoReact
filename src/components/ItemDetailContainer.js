@@ -1,18 +1,19 @@
 import {useState, useEffect} from 'react';
-import Item from './Items';
+import ItemDetail from './ItemDetail';
 import "./styles/Manga.css";
 import { Fragment } from 'react';
 import Loading from './loading';
+import { useParams } from 'react-router-dom';
 import Manga from './Manga';
 
 
-const ItemList=()=>{
+const ItemDetailContainer=()=>{
     const[mangas, setMangas] = useState(<Loading/>);
     const [loading, isLoading] = useState(false);
-
+    const {mangaID} = useParams();
 
     const listado = ()=>{
-        let items = Manga
+        let items = Manga;
         return new Promise((resolve, reject)=>{
             setTimeout(()=>{
                 resolve((items))
@@ -32,8 +33,8 @@ useEffect(()=>{
 
     return(
         <Fragment>
-            {!loading? mangas: mangas.map((el)=>(
-                <Item
+            {!loading? mangas: mangas.filter((manga)=>manga.id===mangaID).map((el)=>(
+                <ItemDetail
                     key={el.id}
                     id={el.id}
                     tomo={el.tomo}
@@ -46,4 +47,4 @@ useEffect(()=>{
     )
 }
 
-export default ItemList;
+export default ItemDetailContainer;

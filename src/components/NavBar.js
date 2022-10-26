@@ -5,6 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Cart from './CartWidget';
 
 
+//navbar de bootstrap
 function Navegacion() {
     return (
         <Navbar bg="warning" expand="lg">
@@ -15,7 +16,7 @@ function Navegacion() {
                     <Nav className="me-auto">
                         <Nav.Link href="#home">Home</Nav.Link>
                         <NavDropdown title="Tienda" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Manga</NavDropdown.Item>
+                            <NavDropdown.Item href="`items/${props.id}`">Manga</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">
                                 Figuras
                             </NavDropdown.Item>
