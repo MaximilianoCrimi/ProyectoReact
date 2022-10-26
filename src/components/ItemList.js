@@ -5,14 +5,15 @@ import { Fragment } from 'react';
 import Loading from './loading';
 import Manga from './Manga';
 
-
-const ItemList=()=>{
+const ItemList=(prop)=>{
     const[mangas, setMangas] = useState(<Loading/>);
     const [loading, isLoading] = useState(false);
+   
 
 
     const listado = ()=>{
-        let items = Manga
+        let items = Manga;
+      
         return new Promise((resolve, reject)=>{
             setTimeout(()=>{
                 resolve((items))
@@ -32,7 +33,9 @@ useEffect(()=>{
 
     return(
         <Fragment>
-            {!loading? mangas: mangas.map((el)=>(
+            {!loading? mangas
+            : mangas
+            .filter((manga)=> manga.saga === prop.saga).map((el)=>(
                 <Item
                     key={el.id}
                     id={el.id}

@@ -1,13 +1,13 @@
 import './App.css';
 import Navegacion from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
-
+import Router from './components/Router';
 
 function App() {
   return (
     <div>
-      <Navegacion/>
-      <ItemListContainer msg="Bienvenido a mi Page"/>
+ 
+      <Router/>
     </div>
   );
 }
